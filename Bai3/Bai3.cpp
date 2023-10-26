@@ -3,10 +3,36 @@
 
 #include <iostream>
 using namespace std;
+void lietke(unsigned int n) {
+	int p;
+	int L = 0;
+	if (n % 50000 != 0) {
+		cout << "khong the chi tra duoc" << endl;
+	}
+	else
+	{
+		for (int i = 0; 500000 * i <= n; i++) {
+			for (int j = 0; 200000 * j <= n - 500000 * i; j++) {
+				for (int k = 0; 100000 * k <= n - 500000 * i - 200000 * j; k++) {
+					p = (n - 500000 * i - 200000 * j - 100000 * k) / 50000;
+					cout << i << " to 500k ";
+					cout << j << " to 200k ";
+					cout << k << " to 100k ";
+					cout << p << " to 50k " << endl;
+					L = L + 1;
+				}
+			}
+		}
+	}
+}
 
 int main()
 {
-   
+	unsigned int n;
+	cout << "nhap so tien n = "; cin >> n;
+	lietke(n);
+	return 0;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

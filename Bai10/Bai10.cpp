@@ -1,33 +1,27 @@
-// Bai5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Bai10.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 using namespace std;
-double power3(double n) {
-    return n * n * n;
-}
-double sqrt_3(double n) {
-    double left = 0.5 * (-n * n - 1);
-    double right = 0.5 * (n * n + 1);
-    double mid;
-    while (right - left > 1/(1e9)){
-        mid = (left + right) / 2;
-            if((power3(left)-n)*(power3(mid)-n)<0){
-                right = mid;
-
-            }
-            else {
-                left = mid;
-            }
+long long Fibonanci_number(int n) {
+    if (n <= 1) {
+        return 1;
     }
-    return (left + right) / 2;
+    long long F_n = 1;
+    long long F_n1 = 1;
+    long long k;
+    for (int i = 2; i <= n; i++) {
+        k = F_n;
+        F_n = F_n1 + F_n;
+        F_n1 = k;
+    }
+    return F_n;
 }
 int main()
 {
-    double a;
-    cout << "nhap so thuc a = "; cin >> a;
-    cout << "can bac 3 cua a = " << sqrt_3(a) << endl;
-    return 0;
+    int n;
+    cout << "nhap so tu nhien n = "; cin >> n;
+    cout << "so Fibonanci thu " << n << " la " << Fibonanci_number(n);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
