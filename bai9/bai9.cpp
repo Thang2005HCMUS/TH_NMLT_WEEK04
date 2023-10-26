@@ -2,10 +2,24 @@
 //
 
 #include <iostream>
-
+using namespace std;
+int GCD(int M, int N) {
+    while (M != N) {
+        if (M > N) {
+            M = M - N;
+        }
+        else {
+            N = N - M;
+        }
+    }return M;
+}
 int main()
 {
-    std::cout << "Hello World!\n";
+    int M, N;
+    cout << "nhap so nguyen duong M : "; cin >> M;
+    cout << "nhap so nguyen duong N : "; cin >> N;
+    cout << "uoc chung lon nhat cua 2 so " << M << " va " << N << " la " << GCD(M, N) << endl;
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
