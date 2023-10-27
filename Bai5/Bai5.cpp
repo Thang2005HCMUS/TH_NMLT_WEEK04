@@ -6,9 +6,14 @@ using namespace std;
 double power3(double n) {
     return n * n * n;
 }
+double abs_(double a) {
+    if (a >= 0) {
+        return a;
+    }return -a;
+}
 double sqrt_3(double n) {
-    double left = 0.5 * (-n * n - 1);
-    double right = 0.5 * (n * n + 1);
+    double left = (- abs_(n) - 2) / 3;
+    double right = -left;
     double mid;
     while (right - left > 1/(1e9)){
         mid = (left + right) / 2;
@@ -26,7 +31,7 @@ int main()
 {
     double a;
     cout << "nhap so thuc a = "; cin >> a;
-    cout << "can bac 3 cua a = " << sqrt_3(a) << endl;
+    cout << "can bac 3 cua "<<a<<" = " << sqrt_3(a) << endl;
     return 0;
 }
 
